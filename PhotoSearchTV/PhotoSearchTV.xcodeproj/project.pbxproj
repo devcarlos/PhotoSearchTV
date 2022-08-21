@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5676726F28B27FBC00A001D0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676726E28B27FBC00A001D0 /* Photo.swift */; };
+		5676727128B285D700A001D0 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727028B285D700A001D0 /* Feed.swift */; };
 		9A82F7F328B18A27005762C5 /* PhotoSearchTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F7F228B18A27005762C5 /* PhotoSearchTVApp.swift */; };
 		9A82F7F528B18A27005762C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F7F428B18A27005762C5 /* ContentView.swift */; };
 		9A82F7F728B18A28005762C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A82F7F628B18A28005762C5 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5676726E28B27FBC00A001D0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		5676727028B285D700A001D0 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		9A82F7EF28B18A27005762C5 /* PhotoSearchTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearchTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82F7F228B18A27005762C5 /* PhotoSearchTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchTVApp.swift; sourceTree = "<group>"; };
 		9A82F7F428B18A27005762C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				9A82F81828B1A90B005762C5 /* DataFetchPhase.swift */,
+				5676726E28B27FBC00A001D0 /* Photo.swift */,
+				5676727028B285D700A001D0 /* Feed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5676726F28B27FBC00A001D0 /* Photo.swift in Sources */,
+				5676727128B285D700A001D0 /* Feed.swift in Sources */,
 				9A82F80B28B1923F005762C5 /* PhotoService.swift in Sources */,
 				9A82F80228B18D11005762C5 /* FeedView.swift in Sources */,
 				9A82F81B28B1AC02005762C5 /* EmptyPlaceholderView.swift in Sources */,
