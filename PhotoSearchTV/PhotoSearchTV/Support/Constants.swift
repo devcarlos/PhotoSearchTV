@@ -22,7 +22,7 @@ struct Constants {
     static let API_KEY = "e9385d4dca3bbdcdf113ea2984dda18e"
     static let baseUrl = "https://www.flickr.com/"
     static let searchUrl = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=API_KEY&text=SEARCH_TEXT&format=json&nojsoncallback=1"
-    static let feedsUrl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=1"
+    static let feedsUrl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&nojsoncallback=1"
 
 //    #
 //    # Typical usage

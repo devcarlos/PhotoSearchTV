@@ -20,7 +20,7 @@ struct PhotoItemView: View {
                     .clipped()
 
                 VStack(alignment: .leading) {
-                    Text(item.title)
+                    Text(item.title ?? "")
                         .font(.subheadline)
                         .foregroundStyle(.primary)
                         .lineLimit(3)
@@ -28,7 +28,7 @@ struct PhotoItemView: View {
                     Spacer(minLength: 12)
 
                     HStack {
-                        Text(item.author)
+                        Text(item.author ?? "")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .lineLimit(1)

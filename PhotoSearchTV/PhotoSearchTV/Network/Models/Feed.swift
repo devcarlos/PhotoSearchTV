@@ -30,25 +30,25 @@ import Foundation
 // MARK: - Feed Result
 
 struct FlickrFeed: Codable {
-    let title: String
-    let linkpage: String
-    let description: String
-    let modified: String
-    let generator: String
+    let title: String?
+    let linkpage: String?
+    let description: String?
+    let modified: String?
+    let generator: String?
     let items: [FeedItem]
 }
 
 // MARK: - Feed
 struct FeedItem: Codable {
-    var title: String
-    var link: String
-    var media: String
-    var dateTaken: String
-    var description: String
-    var published: String
-    var author: String
-    var authorId: String
-    var tags: String
+    var title: String?
+    var link: String?
+    var media: [String: String]
+    var dateTaken: String?
+    var description: String?
+    var published: String?
+    var author: String?
+    var authorId: String?
+    var tags: String?
 
     private enum CodingKeys : String, CodingKey {
         case title, link, media, dateTaken = "date_taken", description, published, author, authorId = "author_id", tags
@@ -57,6 +57,6 @@ struct FeedItem: Codable {
 
 extension FeedItem {
     var imageURL: URL? {
-        return URL(string: link)
+        return URL(string: link ?? "")
     }
 }

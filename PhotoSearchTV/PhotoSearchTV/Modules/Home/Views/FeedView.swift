@@ -38,7 +38,7 @@ struct FeedView: View {
                 }
             }
         }
-        .task(refreshTask)
+//        .task(refreshTask)
     }
 
     @Sendable
