@@ -1,15 +1,15 @@
 //
-//  PhotoItemView.swift
+//  PhotoSearchView.swift
 //  PhotoSearchTV
 //
-//  Created by Carlos Alcala on 20/8/22.
+//  Created by Carlos Alcala on 21/8/22.
 //
 
 import SwiftUI
 
-struct PhotoItemView: View {
+struct PhotoSearchView: View {
 
-    let item: FeedItem
+    let photo: Photo
 
     var body: some View {
         GeometryReader { proxy in
@@ -20,27 +20,20 @@ struct PhotoItemView: View {
                     .clipped()
 
                 VStack(alignment: .leading) {
-                    Text(item.title)
+                    Text(photo.title)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
                         .lineLimit(3)
 
                     Spacer(minLength: 12)
-
-                    HStack {
-                        Text(item.author)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                    }
                 }
-                .padding([.horizontal, .bottom])
             }
+                .padding([.horizontal, .bottom])
         }
     }
 
-    private var asyncImage: some View  {
-        AsyncImage(url: item.imageURL) { phase in
+    private var asyncImage: some View {
+        AsyncImage(url: photo.imageURL) { phase in
             switch phase {
             case .empty:
                 HStack {

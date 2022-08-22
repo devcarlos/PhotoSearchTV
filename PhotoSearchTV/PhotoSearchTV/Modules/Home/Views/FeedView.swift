@@ -19,11 +19,11 @@ struct FeedView: View {
         NavigationView {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 32) {
-                    ForEach(viewModel.currentPhotoData) { photo in
+                    ForEach(viewModel.feedData?.items ?? [], id: \.title) { item in
                         NavigationLink {
-                            PhotoDetailView(photo: photo)
+//                            PhotoDetailView(photo: item)
                         } label: {
-                            PhotoItemView(photo: photo)
+                            PhotoItemView(item: item)
                                 .frame(width: 420, height: 420)
                         }
                         .buttonStyle(.card)
@@ -34,7 +34,7 @@ struct FeedView: View {
             }
             .onAppear {
                 Task {
-                    await viewModel.fetchPhotos()
+                    await viewModel.fetchFeed()
                 }
             }
         }
@@ -44,7 +44,7 @@ struct FeedView: View {
     @Sendable
     private func refreshTask() {
         Task {
-            await viewModel.fetchPhotos()
+            await viewModel.fetchFeed()
         }
     }
 }

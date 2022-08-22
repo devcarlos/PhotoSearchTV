@@ -35,11 +35,11 @@ struct FlickrFeed: Codable {
     let description: String
     let modified: String
     let generator: String
-    let items: [Feed]
+    let items: [FeedItem]
 }
 
 // MARK: - Feed
-struct Feed: Codable {
+struct FeedItem: Codable {
     var title: String
     var link: String
     var media: String
@@ -52,5 +52,11 @@ struct Feed: Codable {
 
     private enum CodingKeys : String, CodingKey {
         case title, link, media, dateTaken = "date_taken", description, published, author, authorId = "author_id", tags
+    }
+}
+
+extension FeedItem {
+    var imageURL: URL? {
+        return URL(string: link)
     }
 }

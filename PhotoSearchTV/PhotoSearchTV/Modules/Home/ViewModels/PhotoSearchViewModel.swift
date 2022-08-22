@@ -11,21 +11,21 @@ import SwiftUI
 @MainActor
 class PhotoSearchViewModel: ObservableObject {
 
-    @Published var phase: DataFetchPhase<[Photo]> = .empty
+    @Published var phase: DataFetchPhase<SearchResult> = .empty
     @Published var searchQuery = ""
     @Published var history = [String]()
     @Published var currentSearch: String?
     
     private var cancellables = Set<AnyCancellable>()
     
-    private var service: ServiceProtocol?
+    private var service: PhotoServiceProtocol?
     
     static let shared = PhotoSearchViewModel()
     private var trimmedSearchQuery: String {
         searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
-    private init(service: ServiceProtocol? = PhotoService()) {
+    private init(service: PhotoServiceProtocol? = PhotoService()) {
         self.service = service
         observeSearchQuery()
     }
@@ -45,24 +45,26 @@ class PhotoSearchViewModel: ObservableObject {
     func searchPhoto() async {
         if Task.isCancelled { return }
         
-        let searchQuery = trimmedSearchQuery
+        let query = trimmedSearchQuery
         phase = .empty
         
-        if searchQuery.isEmpty {
+        if query.isEmpty {
             return
         }
         
-        currentSearch = searchQuery
+        currentSearch = query
         do {
-            let photos = try await service?.search(for: searchQuery)
-            if Task.isCancelled { return }
-            if searchQuery != trimmedSearchQuery {
+            guard let searchResult = try await service?.search(with: query) else {
                 return
             }
-            phase = .success(photos)
+            if Task.isCancelled { return }
+            if query != trimmedSearchQuery {
+                return
+            }
+            phase = .success(searchResult)
         } catch {
             if Task.isCancelled { return }
-            if searchQuery != trimmedSearchQuery {
+            if query != trimmedSearchQuery {
                 return
             }
             phase = .failure(error)

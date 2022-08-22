@@ -7,38 +7,23 @@
 
 import Foundation
 
-protocol ServiceProtocol: AnyObject {
-    func getPhotos() async throws -> [Photo]
-    func search() async throws -> [Photo]
+protocol PhotoServiceProtocol: AnyObject {
+    func search(with query: String) async throws -> SearchResult
 }
 
-class PhotoService : ServiceProtocol {
-    func getPhotos() async throws -> [Photo] {
-        let (data, _) = try await URLSession.shared.data(from: generateURL())
+class PhotoService : PhotoServiceProtocol {
+    func search(with query: String) async throws -> SearchResult {
+        let (data, _) = try await URLSession.shared.data(from: searchURL(with: query))
 
-        let decodedData = try JSONDecoder().decode([Photo].self, from: data)
-        return decodedData
+        return try JSONDecoder().decode(SearchResult.self, from: data)
     }
-    
-    func search(for query: String) async throws -> [Photo] {
-        try await fetchArticles(from: generateSearchURL(from: query))
-    }
-    
-    private func generateURL() -> URL {
-        var url = Constants.baseUrl
-        url += "channelPageSize=3"
-        url += "&contentPageSize=10"
-        url += "&filterChannelTypes=true"
 
-        print("url \(url)")
-        return URL(string: url)!
-    }
-    
-    private func generateSearchURL() -> URL {
-        var url = Constants.baseUrl
-        url += "channelPageSize=3"
-        url += "&contentPageSize=10"
-        url += "&filterChannelTypes=true"
+    private func searchURL(with query: String) -> URL {
+        var url = Constants.searchUrl
+
+        url = url.replacingOccurrences(of: "API_KEY", with: Constants.API_KEY)
+        url = url.replacingOccurrences(of: "SEARCH_TEXT", with: query)
+
         print("url \(url)")
         return URL(string: url)!
     }

@@ -14,19 +14,21 @@ class FeedViewModel: ObservableObject {
 
     // MARK: Properties
 
-    var currentPhotoData: [Photo]
-    private var service: ServiceProtocol?
+    var feedData: FlickrFeed?
+    private var service: FeedServiceProtocol?
 
     // MARK: - API
 
-    init(service: ServiceProtocol? = PhotoService()) {
+    init(service: FeedServiceProtocol? = FeedService()) {
         self.service = service
     }
 
-    func fetchPhotos() async {
+    func fetchFeed() async {
         do {
-            let data = try await service?.getPhotos()
-            self.currentPhotoData = data
+            guard let data = try await service?.fetchFeed() else {
+                return
+            }
+            self.feedData = data
         } catch let error {
             print(error)
         }

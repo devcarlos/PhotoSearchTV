@@ -41,7 +41,7 @@ import Foundation
 // MARK: - Photos Data Models
 
 struct SearchResult: Codable {
-    let photos: [PhotosPage]
+    let photos: PhotosPage
 }
 
 struct PhotosPage: Codable {
@@ -49,18 +49,34 @@ struct PhotosPage: Codable {
     let pages: Int
     let perpage: Int
     let total: Int
-    let photo: [Photo]
+    let photos: [Photo]
+
+    private enum CodingKeys : String, CodingKey {
+        case page, pages, perpage, total, photos = "photo"
+    }
 }
 
 // MARK: - Photo
-struct Photo: Codable {
-    var id: String?
-    var owner: String?
-    var secret: String?
-    var server: String?
+struct Photo: Codable, Identifiable {
+    var id: String
+    var owner: String
+    var secret: String
+    var server: String
     var farm: Int
-    var title: String?
+    var title: String
     var ispublic: Bool
     var isfriend: Bool
     var isfamily: Bool
+}
+
+extension Photo {
+    var serverURL: String {
+        let url = Constants.imageUrl
+
+        return url
+    }
+
+    var imageURL: URL? {
+        return URL(string: serverURL)
+    }
 }

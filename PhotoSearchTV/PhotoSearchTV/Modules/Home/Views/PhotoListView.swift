@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhotoListView: View {
     
-    let photos: [Photo]
+    let searchResult: SearchResult
     
     var body: some View {
         rootView
@@ -18,11 +18,11 @@ struct PhotoListView: View {
     private var gridView: some View {
         ScrollView {
             LazyVGrid(columns: gridItems, spacing: gridSpacing) {
-                ForEach(photos) { photo in
+                ForEach(searchResult.photos.photos) { photo in
                     NavigationLink {
-                        PhotoDetailView(photo: photo)
+//                        PhotoDetailView(photo: photo)
                     } label: {
-                        PhotoItemView(photo: photo)
+                        PhotoSearchView(photo: photo)
                             .frame(width: 400, height: 400)
                     }
                     .buttonStyle(.card)

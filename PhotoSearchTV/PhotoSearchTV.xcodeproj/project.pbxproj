@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5676726F28B27FBC00A001D0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676726E28B27FBC00A001D0 /* Photo.swift */; };
 		5676727128B285D700A001D0 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727028B285D700A001D0 /* Feed.swift */; };
+		5676727328B30D8800A001D0 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727228B30D8800A001D0 /* FeedService.swift */; };
+		5676727528B335C600A001D0 /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727428B335C500A001D0 /* PhotoSearchView.swift */; };
 		9A82F7F328B18A27005762C5 /* PhotoSearchTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F7F228B18A27005762C5 /* PhotoSearchTVApp.swift */; };
 		9A82F7F528B18A27005762C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F7F428B18A27005762C5 /* ContentView.swift */; };
 		9A82F7F728B18A28005762C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A82F7F628B18A28005762C5 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		5676726E28B27FBC00A001D0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5676727028B285D700A001D0 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		5676727228B30D8800A001D0 /* FeedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		5676727428B335C500A001D0 /* PhotoSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchView.swift; sourceTree = "<group>"; };
 		9A82F7EF28B18A27005762C5 /* PhotoSearchTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearchTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82F7F228B18A27005762C5 /* PhotoSearchTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchTVApp.swift; sourceTree = "<group>"; };
 		9A82F7F428B18A27005762C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			children = (
 				9A82F80128B18D11005762C5 /* FeedView.swift */,
 				9A82F80F28B19D37005762C5 /* PhotoItemView.swift */,
+				5676727428B335C500A001D0 /* PhotoSearchView.swift */,
 				9A82F81128B19E78005762C5 /* SearchTabView.swift */,
 				9A82F81528B1A30A005762C5 /* PhotoListView.swift */,
 				9A82F81A28B1AC02005762C5 /* EmptyPlaceholderView.swift */,
@@ -147,6 +152,7 @@
 		9A82F80928B191AD005762C5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5676727228B30D8800A001D0 /* FeedService.swift */,
 				9A82F80A28B1923F005762C5 /* PhotoService.swift */,
 			);
 			path = Services;
@@ -241,10 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5676726F28B27FBC00A001D0 /* Photo.swift in Sources */,
+				5676727328B30D8800A001D0 /* FeedService.swift in Sources */,
 				5676727128B285D700A001D0 /* Feed.swift in Sources */,
 				9A82F80B28B1923F005762C5 /* PhotoService.swift in Sources */,
 				9A82F80228B18D11005762C5 /* FeedView.swift in Sources */,
 				9A82F81B28B1AC02005762C5 /* EmptyPlaceholderView.swift in Sources */,
+				5676727528B335C600A001D0 /* PhotoSearchView.swift in Sources */,
 				9A82F7F528B18A27005762C5 /* ContentView.swift in Sources */,
 				9A82F81D28B1AC52005762C5 /* RetryView.swift in Sources */,
 				9A82F81028B19D37005762C5 /* PhotoItemView.swift in Sources */,

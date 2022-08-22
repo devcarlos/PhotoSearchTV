@@ -12,7 +12,7 @@ struct SearchTabView: View {
     @StateObject var searchVM = PhotoSearchViewModel.shared
     
     var body: some View {
-        PhotoListView(photos: photos)
+        PhotoListView(searchResult: searchResult)
             .overlay(overlayView)
             .searchable(text: $searchVM.searchQuery)
             .onChange(of: searchVM.searchQuery) { newValue in
@@ -22,11 +22,11 @@ struct SearchTabView: View {
             }
     }
     
-    private var photos: [Photo] {
-        if case .success(let photos) = searchVM.phase {
-            return photos
+    private var searchResult: SearchResult {
+        if case .success(let searchResult) = searchVM.phase {
+            return searchResult
         } else {
-            return []
+            return SearchResult(photos: PhotosPage(page: 0, pages: 0, perpage: 0, total: 0, photos: []))
         }
     }
     
@@ -39,7 +39,7 @@ struct SearchTabView: View {
             } else {
                 EmptyPlaceholderView(text: "Type your query to search from NewsAPI", image: Image(systemName: "magnifyingglass"))
             }
-        case .success(let photos) where photos.isEmpty:
+        case .success(let searchResult) where searchResult.photos.photos.isEmpty:
             EmptyPlaceholderView(text: "No search results found", image: Image(systemName: "magnifyingglass"))
             
         case .failure(let error):
@@ -62,8 +62,6 @@ struct SearchTabView: View {
     }
     
     private func search() {
-        let searchQuery = searchVM.searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         Task {
             await searchVM.searchPhoto()
         }
