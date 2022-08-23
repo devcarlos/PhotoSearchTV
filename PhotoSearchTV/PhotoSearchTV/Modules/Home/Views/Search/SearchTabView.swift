@@ -52,7 +52,7 @@ struct SearchTabView: View {
     
     @ViewBuilder
     private var suggestionsView: some View {
-        ForEach(["Swift", "Covid-19", "BTC", "PS5", "iOS 15"], id: \.self) { text in
+        ForEach(["News", "Haystack", "Breaking News"], id: \.self) { text in
             Button {
                 searchVM.searchQuery = text
             } label: {

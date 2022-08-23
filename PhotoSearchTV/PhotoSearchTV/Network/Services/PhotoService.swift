@@ -20,24 +20,21 @@ class PhotoService : PhotoServiceProtocol {
         
         return try await withUnsafeThrowingContinuation { continuation in
             AF.request(url, parameters:nil, encoding: JSONEncoding.default).response { response in
-                debugPrint("Response: \(response.result)")
 
                 switch response.result {
                 case .success(let jsonData):
                     let JSON = response.data?.prettyPrintedJSONString ?? ""
-                    debugPrint("JSON \(String(describing: JSON))")
                     debugPrint(JSON)
 
                     guard let searchResult = try? JSONDecoder().decode(SearchResult.self, from: jsonData ?? Data()) else {
                         debugPrint("Unable to parse SearchResult")
                         return
                     }
-                    print("searchResult: \(String(describing: searchResult))")
 
                     continuation.resume(returning: searchResult)
                     return
                 case let .failure(error):
-                    print(error)
+                    debugPrint(error)
                     continuation.resume(throwing: error)
                     return
                 }
@@ -52,8 +49,6 @@ class PhotoService : PhotoServiceProtocol {
         let queryText = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
         url = url.replacingOccurrences(of: "SEARCH_TEXT", with: queryText)
 
-        print("TEXT \(queryText)")
-        print("URL SEARCH \(url)")
         return URL(string: url)
     }
 }

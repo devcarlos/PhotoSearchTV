@@ -31,29 +31,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-////        GeometryReader { geometry in
-//            ScrollView(.vertical) {
-//                VStack {
-//                    VStack(alignment: .leading) {
-//                        ForEach(0..<100) {
-//                            Text("Row \($0)")
-//                                .focusable()
-//                        }
-//                    }
-////                    ForEach (0..<20) { _ in
-////                        ListItem()
-////                    }
-//                }
-//            } // Scrollview
-////        } // GeometryReader
-//struct ListItem: View {
-////    let geometry: GeometryProxy
-//
-//    var body: some View {
-//        Image("test")
-//        .frame(height: 200)
-//        .aspectRatio(contentMode: .fit)
-//        .clipped()
-//    }
-//}

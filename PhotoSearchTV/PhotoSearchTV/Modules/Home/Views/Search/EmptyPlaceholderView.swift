@@ -26,5 +26,4 @@ struct EmptyPlaceholderView: View {
             Spacer()
         }
     }
-    
 }

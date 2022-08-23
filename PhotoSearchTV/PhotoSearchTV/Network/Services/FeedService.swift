@@ -16,24 +16,21 @@ class FeedService : FeedServiceProtocol {
     func fetchFeed() async throws -> FlickrFeed {
         return try await withUnsafeThrowingContinuation { continuation in
             AF.request(feedURL(), parameters:nil, encoding: JSONEncoding.default).response { response in
-                debugPrint("Response: \(response.result)")
 
                 switch response.result {
                 case .success(let jsonData):
                     let JSON = response.data?.prettyPrintedJSONString ?? ""
-                    debugPrint("JSON \(String(describing: JSON))")
                     debugPrint(JSON)
 
                     guard let feed = try? JSONDecoder().decode(FlickrFeed.self, from: jsonData ?? Data()) else {
                         debugPrint("Unable to parse Feed")
                         return
                     }
-                    print("feed: \(String(describing: feed))")
 
                     continuation.resume(returning: feed)
                     return
                 case let .failure(error):
-                    print(error)
+                    debugPrint(error)
                     continuation.resume(throwing: error)
                     return
                 }
