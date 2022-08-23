@@ -12,25 +12,29 @@ struct PhotoFeedView: View {
     let feed: FlickrFeed?
     
     var body: some View {
-        VStack {
-            Text("Cats Feed on Flickr")
-                .font(.subheadline)
-                .foregroundStyle(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 40)
+        NavigationView {
+            VStack {
+                Text("Cats Feed on Flickr")
+                    .font(.subheadline)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 40)
 
-            ScrollView(.vertical) {
-                LazyVGrid(columns: gridItems, spacing: gridSpacing) {
-                    ForEach(feed?.items ?? [], id: \.dateTaken) { item in
-                        PhotoItemView(item: item)
-                            .focusable()
-                            .frame(width: 570, height: 380)
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: gridItems, spacing: gridSpacing) {
+                        ForEach(feed?.items ?? [], id: \.dateTaken) { item in
+                            NavigationLink(destination: PhotoDetail(item: item), label: {
+                                PhotoItemView(item: item)
+                                    .focusable()
+                                    .frame(width: 570, height: 380)
+                            })
+                        }
                     }
+                    .padding()
                 }
-                .padding()
             }
+            .background(Color.black)
         }
-        .background(Color.black)
     }
     
     private var gridItems: [GridItem] {

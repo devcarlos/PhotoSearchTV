@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560DAD3B28B5714A00784C36 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560DAD3A28B5714A00784C36 /* PhotoDetail.swift */; };
 		5676726F28B27FBC00A001D0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676726E28B27FBC00A001D0 /* Photo.swift */; };
 		5676727128B285D700A001D0 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727028B285D700A001D0 /* Feed.swift */; };
 		5676727328B30D8800A001D0 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727228B30D8800A001D0 /* FeedService.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		560DAD3A28B5714A00784C36 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
 		5676726E28B27FBC00A001D0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5676727028B285D700A001D0 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		5676727228B30D8800A001D0 /* FeedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				9A82F80128B18D11005762C5 /* FeedView.swift */,
 				9A82F80F28B19D37005762C5 /* PhotoItemView.swift */,
 				9AF14A7328B42FCB0042D4EF /* PhotoFeedView.swift */,
+				560DAD3A28B5714A00784C36 /* PhotoDetail.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				9A82F81D28B1AC52005762C5 /* RetryView.swift in Sources */,
 				9A82F81028B19D37005762C5 /* PhotoItemView.swift in Sources */,
 				9A82F81428B19F2A005762C5 /* PhotoSearchViewModel.swift in Sources */,
+				560DAD3B28B5714A00784C36 /* PhotoDetail.swift in Sources */,
 				9A82F80528B190BD005762C5 /* FeedViewModel.swift in Sources */,
 				9A82F7F328B18A27005762C5 /* PhotoSearchTVApp.swift in Sources */,
 				9A82F81928B1A90B005762C5 /* DataFetchPhase.swift in Sources */,
