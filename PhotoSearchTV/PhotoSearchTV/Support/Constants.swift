@@ -52,5 +52,5 @@ struct Constants {
 //
 //    https://live.staticflickr.com/7372/12502775644_acfd415fa7_w.jpg
 
-    static let imageUrl = "https://live.staticflickr.com/{SERVER_ID}/{PHOTO_ID}_{SECRET}_o.{FORMAT}"
+    static let imageUrl = "https://live.staticflickr.com/{SERVER_ID}/{PHOTO_ID}_{SECRET}_w.{FORMAT}"
 }

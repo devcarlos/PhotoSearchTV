@@ -28,7 +28,7 @@ class FeedService : FeedServiceProtocol {
                         debugPrint("Unable to parse Feed")
                         return
                     }
-                    print("feed \(String(describing: feed))")
+                    print("feed: \(String(describing: feed))")
 
                     continuation.resume(returning: feed)
                     return

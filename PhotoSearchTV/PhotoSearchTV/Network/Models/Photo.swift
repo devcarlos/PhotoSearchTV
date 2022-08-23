@@ -41,38 +41,57 @@ import Foundation
 // MARK: - Photos Data Models
 
 struct SearchResult: Codable {
+    let stat: String?
     let photos: PhotosPage
 }
 
 struct PhotosPage: Codable {
-    let page: Int
-    let pages: Int
-    let perpage: Int
-    let total: Int
-    let photos: [Photo]
+    let page: Int?
+    let pages: Int?
+    let perpage: Int?
+    let total: Int?
+    let photo: [Photo]
 
-    private enum CodingKeys : String, CodingKey {
-        case page, pages, perpage, total, photos = "photo"
-    }
+//    private enum CodingKeys : String, CodingKey {
+//        case page, pages, perpage, total, photos = "photo"
+//    }
 }
+
+//"photo" : [
+//  {
+//    "owner" : "195041273@N07",
+//    "secret" : "1bb972eabf",
+//    "server" : "65535",
+//    "id" : "52303430056",
+//    "farm" : 66,
+//    "title" : "Promoções imperdíveis para quem quer viajar para São Paulo, Salvador, Beto Carrero World e Chapada Diamantina!",
+//    "isfriend" : 0,
+//    "isfamily" : 0,
+//    "ispublic" : 1
+//  },
 
 // MARK: - Photo
 struct Photo: Codable, Identifiable {
-    var id: String
-    var owner: String
-    var secret: String
-    var server: String
-    var farm: Int
-    var title: String
-    var ispublic: Bool
-    var isfriend: Bool
-    var isfamily: Bool
+    var id: String?
+    var owner: String?
+    var secret: String?
+    var server: String?
+    var farm: Int?
+    var title: String?
+    var ispublic: Int?
+    var isfriend: Int?
+    var isfamily: Int?
 }
 
 extension Photo {
     var serverURL: String {
-        let url = Constants.imageUrl
-
+        var url = Constants.imageUrl
+        
+        url = url.replacingOccurrences(of: "{SERVER_ID}", with: server ?? "")
+        url = url.replacingOccurrences(of: "{PHOTO_ID}", with: id ?? "")
+        url = url.replacingOccurrences(of: "{SECRET}", with: secret ?? "")
+        url = url.replacingOccurrences(of: "{FORMAT}", with: "jpg")
+    
         return url
     }
 

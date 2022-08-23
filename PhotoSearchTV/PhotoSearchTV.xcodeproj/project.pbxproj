@@ -12,6 +12,7 @@
 		5676727328B30D8800A001D0 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727228B30D8800A001D0 /* FeedService.swift */; };
 		5676727528B335C600A001D0 /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676727428B335C500A001D0 /* PhotoSearchView.swift */; };
 		5676727828B3437200A001D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5676727728B3437200A001D0 /* Alamofire */; };
+		9A72D43728B43FEC009726E8 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 9A72D43628B43FEC009726E8 /* SwiftDate */; };
 		9A82F7F328B18A27005762C5 /* PhotoSearchTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F7F228B18A27005762C5 /* PhotoSearchTVApp.swift */; };
 		9A82F7F528B18A27005762C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F7F428B18A27005762C5 /* ContentView.swift */; };
 		9A82F7F728B18A28005762C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A82F7F628B18A28005762C5 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		9A82F81928B1A90B005762C5 /* DataFetchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F81828B1A90B005762C5 /* DataFetchPhase.swift */; };
 		9A82F81B28B1AC02005762C5 /* EmptyPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F81A28B1AC02005762C5 /* EmptyPlaceholderView.swift */; };
 		9A82F81D28B1AC52005762C5 /* RetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82F81C28B1AC52005762C5 /* RetryView.swift */; };
+		9AF14A7428B42FCB0042D4EF /* PhotoFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF14A7328B42FCB0042D4EF /* PhotoFeedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,7 @@
 		9A82F81828B1A90B005762C5 /* DataFetchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchPhase.swift; sourceTree = "<group>"; };
 		9A82F81A28B1AC02005762C5 /* EmptyPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlaceholderView.swift; sourceTree = "<group>"; };
 		9A82F81C28B1AC52005762C5 /* RetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryView.swift; sourceTree = "<group>"; };
+		9AF14A7328B42FCB0042D4EF /* PhotoFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFeedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A72D43728B43FEC009726E8 /* SwiftDate in Frameworks */,
 				5676727828B3437200A001D0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,13 +109,8 @@
 		9A82F80028B18C37005762C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A82F80128B18D11005762C5 /* FeedView.swift */,
-				9A82F80F28B19D37005762C5 /* PhotoItemView.swift */,
-				5676727428B335C500A001D0 /* PhotoSearchView.swift */,
-				9A82F81128B19E78005762C5 /* SearchTabView.swift */,
-				9A82F81528B1A30A005762C5 /* PhotoListView.swift */,
-				9A82F81A28B1AC02005762C5 /* EmptyPlaceholderView.swift */,
-				9A82F81C28B1AC52005762C5 /* RetryView.swift */,
+				9AF14A7528B42FF30042D4EF /* Feed */,
+				9AF14A7628B4300A0042D4EF /* Search */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +177,28 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9AF14A7528B42FF30042D4EF /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9A82F80128B18D11005762C5 /* FeedView.swift */,
+				9A82F80F28B19D37005762C5 /* PhotoItemView.swift */,
+				9AF14A7328B42FCB0042D4EF /* PhotoFeedView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		9AF14A7628B4300A0042D4EF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9A82F81528B1A30A005762C5 /* PhotoListView.swift */,
+				5676727428B335C500A001D0 /* PhotoSearchView.swift */,
+				9A82F81128B19E78005762C5 /* SearchTabView.swift */,
+				9A82F81A28B1AC02005762C5 /* EmptyPlaceholderView.swift */,
+				9A82F81C28B1AC52005762C5 /* RetryView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +217,7 @@
 			name = PhotoSearchTV;
 			packageProductDependencies = (
 				5676727728B3437200A001D0 /* Alamofire */,
+				9A72D43628B43FEC009726E8 /* SwiftDate */,
 			);
 			productName = PhotoSearchTV;
 			productReference = 9A82F7EF28B18A27005762C5 /* PhotoSearchTV.app */;
@@ -227,6 +249,7 @@
 			mainGroup = 9A82F7E628B18A27005762C5;
 			packageReferences = (
 				5676727628B3437200A001D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9A72D43528B43FEC009726E8 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 9A82F7F028B18A27005762C5 /* Products */;
 			projectDirPath = "";
@@ -257,6 +280,7 @@
 				5676726F28B27FBC00A001D0 /* Photo.swift in Sources */,
 				5676727328B30D8800A001D0 /* FeedService.swift in Sources */,
 				5676727128B285D700A001D0 /* Feed.swift in Sources */,
+				9AF14A7428B42FCB0042D4EF /* PhotoFeedView.swift in Sources */,
 				9A82F80B28B1923F005762C5 /* PhotoService.swift in Sources */,
 				9A82F80228B18D11005762C5 /* FeedView.swift in Sources */,
 				9A82F81B28B1AC02005762C5 /* EmptyPlaceholderView.swift in Sources */,
@@ -480,6 +504,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		9A72D43528B43FEC009726E8 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -487,6 +519,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5676727628B3437200A001D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9A72D43628B43FEC009726E8 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A72D43528B43FEC009726E8 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

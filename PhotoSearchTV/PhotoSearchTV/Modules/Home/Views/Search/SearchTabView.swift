@@ -26,7 +26,7 @@ struct SearchTabView: View {
         if case .success(let searchResult) = searchVM.phase {
             return searchResult
         } else {
-            return SearchResult(photos: PhotosPage(page: 0, pages: 0, perpage: 0, total: 0, photos: []))
+            return SearchResult(stat: "", photos: PhotosPage(page: 0, pages: 0, perpage: 0, total: 0, photo: []))
         }
     }
     
@@ -39,7 +39,7 @@ struct SearchTabView: View {
             } else {
                 EmptyPlaceholderView(text: "Type your query to search from NewsAPI", image: Image(systemName: "magnifyingglass"))
             }
-        case .success(let searchResult) where searchResult.photos.photos.isEmpty:
+        case .success(let searchResult) where searchResult.photos.photo.isEmpty:
             EmptyPlaceholderView(text: "No search results found", image: Image(systemName: "magnifyingglass"))
             
         case .failure(let error):

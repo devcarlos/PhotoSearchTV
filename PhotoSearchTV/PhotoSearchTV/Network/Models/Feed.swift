@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftDate
 
 //({
 //        "title": "Recent Uploads tagged cats",
@@ -17,7 +18,9 @@ import Foundation
 //       {
 //            "title": "Kaugummi",
 //            "link": "https:\/\/www.flickr.com\/photos\/mickythepixel\/52300266388\/",
-//            "media": {"m":"https:\/\/live.staticflickr.com\/65535\/52300266388_e52707b205_m.jpg"},
+//            "media": {
+//                  "m":    "https:\/\/live.staticflickr.com\/65535\/52300266388_e52707b205_m.jpg"
+//             },
 //            "date_taken": "2022-08-09T19:04:28-08:00",
 //            "description":
 //            "published": "2022-08-21T08:07:38Z",
@@ -42,9 +45,9 @@ struct FlickrFeed: Codable {
 struct FeedItem: Codable {
     var title: String?
     var link: String?
-    var media: [String: String]
+    var media: FeedMedia
     var dateTaken: String?
-    var description: String?
+    var description: String??
     var published: String?
     var author: String?
     var authorId: String?
@@ -55,8 +58,28 @@ struct FeedItem: Codable {
     }
 }
 
+// MARK: - Feed Media
+
+struct FeedMedia: Codable {
+//    let size: String
+    let link: String
+    
+    private enum CodingKeys : String, CodingKey {
+        case link = "m"
+    }
+}
+
 extension FeedItem {
     var imageURL: URL? {
-        return URL(string: link ?? "")
+        print("media.link \(media.link)")
+        return URL(string: media.link)
+    }
+    
+    var subTitle: String {
+        return (author ?? "") + " / " + (dateFormatted ?? "")
+    }
+    
+    var dateFormatted: String? {
+        return (dateTaken ?? "").toDate()?.toFormat("MMM dd yyyy")
     }
 }

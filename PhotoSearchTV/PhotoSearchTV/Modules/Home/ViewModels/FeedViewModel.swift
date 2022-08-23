@@ -14,7 +14,7 @@ class FeedViewModel: ObservableObject {
 
     // MARK: Properties
 
-    var feedData: FlickrFeed?
+    @Published var feedData: FlickrFeed?
     private var service: FeedServiceProtocol?
 
     // MARK: - API
