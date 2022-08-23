@@ -12,23 +12,23 @@ struct PhotoItemView: View {
     let item: FeedItem
 
     var body: some View {
-        GeometryReader { proxy in
-            VStack(alignment: .leading, spacing: 0) {
-                Spacer()
-                Text(item.title ?? "")
-                    .font(.subheadline)
-                    .foregroundStyle(.white)
-                Text(item.subTitle)
-                    .font(.caption)
-                    .foregroundStyle(.white)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.bottom, 60)
-            .background(asyncImage
-                .frame(height: proxy.size.height * 0.75)
-                .clipped()
-            )
+        VStack(alignment: .leading, spacing: 0) {
+            Spacer()
+            Text(item.title ?? "")
+                .font(.subheadline)
+                .foregroundStyle(.white)
+            Text(item.subTitle)
+                .font(.caption)
+                .foregroundStyle(.white)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, 10)
+        .padding(.bottom, 30)
+        .background(
+            asyncImage
+            .clipped()
+            .border(.gray)
+        )
     }
 
     private var asyncImage: some View  {
@@ -44,7 +44,7 @@ struct PhotoItemView: View {
             case .success(let image):
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
 
             case .failure:
                 HStack {

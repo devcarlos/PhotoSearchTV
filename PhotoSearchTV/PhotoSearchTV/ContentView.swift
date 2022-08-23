@@ -23,6 +23,7 @@ struct ContentView: View {
                 }
                 .tag("search")
         }
+        .background(Color.black)
     }
 }
 
